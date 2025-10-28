@@ -1,0 +1,13 @@
+# To install, use 'brew bundle install'
+brew "bat"
+brew "eza"
+brew "fd"
+brew "fzf"
+brew "neofetch"
+brew "starship"
+brew "stow"
+brew "tlrc"
+brew "tmux"
+brew "yazi"
+brew "zoxide"
+cask "ghostty"

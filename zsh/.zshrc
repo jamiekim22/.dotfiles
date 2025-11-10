@@ -38,6 +38,9 @@ alias f="fzf"
 # Open documentation through fzf (e.g., git, zsh, etc.)
 alias fman="compgen -c | fzf | xargs man"
 
+# yazi
+alias fe="yazi"
+
 # zoxide
 # alias cd="z"
 # ---------------------------------

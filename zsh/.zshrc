@@ -1,3 +1,5 @@
+export PATH="$HOME/.cargo/bin:$PATH"
+export PATH="$HOME/bin:$PATH"
 # --------------------------------
 # Package specific
 # --------------------------------
@@ -41,6 +43,8 @@ alias fman="compgen -c | fzf | xargs man"
 # yazi
 alias fe="yazi"
 
+# pokeget
+alias poke="pokeget"
 # zoxide
 # alias cd="z"
 # ---------------------------------
@@ -48,3 +52,8 @@ alias fe="yazi"
 # ---------------------------------
 source /usr/local/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+
+#----------------------------------
+# Commands
+# ---------------------------------
+neofetch

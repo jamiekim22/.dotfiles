@@ -2,13 +2,17 @@
 config-file = themes/rosepine 
 background = #000000
 background-opacity = 0.75
-background-blur-radius = 23
+background-blur-radius = 25
 
-font-family = JetBrainsMonoNL Nerd Font 
+font-family = JetBrainsMonoNL Nerd Font
 font-size = 16
+font-feature = -liga,-calt,-dlig
 cursor-style = block
 cursor-style-blink = false
-cursor-invert-fg-bg = true
+cursor-color = cell-foreground
+cursor-text = cell-background
+unfocused-split-opacity = 0.55
+split-divider-color = #524f67
 
 macos-titlebar-style = hidden
 macos-option-as-alt = true

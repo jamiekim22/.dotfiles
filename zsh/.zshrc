@@ -57,6 +57,7 @@ source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 #----------------------------------
 # Commands
 # ---------------------------------
+export EDITOR="nvim"
 neofetch
 
 export NVM_DIR="$HOME/.nvm"

@@ -1,0 +1,97 @@
+{
+    "$schema": "https://github.com/fastfetch-cli/fastfetch/raw/dev/doc/json_schema.json",
+    "logo": {
+        "type": "auto",
+        "padding": {
+            "right": 3
+        }
+    },
+    "display": {
+        "separator": ": ",
+        "brightColor": true,
+        "size": {
+            "maxPrefix": "MB",
+            "ndigits": 0,
+            "spaceBeforeUnit": "never"
+        },
+        "freq": {
+            "ndigits": 3,
+            "spaceBeforeUnit": "never"
+        }
+    },
+    "modules": [
+        {
+            "type": "title",
+            "fqdn": false
+        },
+        {
+            "type": "separator",
+            "string": "-"
+        },
+        {
+            "type": "os",
+            "key": "OS",
+            "format": "{name} {version-id} {build-id} {arch}"
+        },
+        {
+            "type": "host",
+            "format": "{?family}{family}{?}{/family}{name}{/}"
+        },
+        {
+            "type": "board",
+            "key": "Host",
+            "condition": {
+                "succeeded": false
+            }
+        },
+        {
+            "type": "kernel",
+            "format": "{release}"
+        },
+        "uptime",
+        "packages",
+        "shell",
+        {
+            "type": "display",
+            "key": "Resolution",
+            "compactType": "scaled",
+            "format": "{scaled-width}x{scaled-height}"
+        },
+        "de",
+        {
+            "type": "wm",
+            "format": "{?plugin-name}{plugin-name}{?}{/plugin-name}{pretty-name}{/}"
+        },
+        "icons",
+        "terminal",
+        {
+            "type": "terminalfont",
+            "key": "Terminal Font",
+            "format": "{/name}{-}{/}{name}{?size} {size}{?}"
+        },
+        {
+            "type": "cpu",
+            "temp": false,
+            "format": "{name} ({cores-logical}) @ {freq-max}"
+        },
+        {
+            "type": "gpu",
+            "key": "GPU",
+            "format": "{name}"
+        },
+        {
+            "type": "memory",
+            "format": "{used} / {total}"
+        },
+        "break",
+        {
+            "type": "colors",
+            "symbol": "background",
+            "paddingLeft": 0,
+            "block": {
+                "width": 3,
+                "range": [0, 15]
+            }
+        }
+    ]
+}

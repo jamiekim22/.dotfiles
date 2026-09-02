@@ -18,6 +18,15 @@ vim.keymap.set("x", "<leader>p", [["_dP]])
 -- delete to void register to not affect yanked
 vim.keymap.set({ "n", "v" }, "<leader>d", [["_d]])
 
+-- deleting line yanks only if not empty line
+vim.keymap.set('n', 'dd', function()
+  if vim.api.nvim_get_current_line():match('^%s*$') then
+    return '"_dd'
+  else
+    return 'dd'
+  end
+end, { expr = true })
+
 -- prevent x delete from registering when next paste
 vim.keymap.set("n", "x", '"_x', opts)
 

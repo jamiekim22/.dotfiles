@@ -1,7 +1,7 @@
 return {
   "sphamba/smear-cursor.nvim",
   opts = {
-    enabled = false,
+    enabled = true,
     smear_between_buffers = false,
     stiffness = 0.9,
     trailing_stiffness = 0.8,

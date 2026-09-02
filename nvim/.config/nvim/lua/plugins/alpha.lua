@@ -39,6 +39,7 @@ return {
 
         local footer_buttons = {
             { sc = "e", txt = "New file", cmd = "<cmd>ene <CR>" },
+            { sc = "L", txt = "Lazy", cmd = "<cmd>Lazy <CR>" },
             { sc = "q", txt = "Quit", cmd = "<cmd>q <CR>" },
         }
 

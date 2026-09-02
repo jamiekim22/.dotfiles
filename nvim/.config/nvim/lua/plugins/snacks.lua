@@ -7,7 +7,7 @@ return {
         -- your configuration comes here
         -- or leave it empty to use the default settings
         -- refer to the configuration section below
-        picker = { 
+        picker = {
             enabled = true,
             exclude = {
                 ".git",
@@ -19,11 +19,12 @@ return {
     },
     keys = {
         -- picker
-        { "<leader>pf", function() Snacks.picker.files() end, desc = "Find Files" },
-        { "<leader>pF", function() Snacks.picker.smart() end, desc = "Smart Find Files" },
-        { "<leader>ps", function() Snacks.picker.grep() end, desc = "Grep" },
-        { "<leader>pr", function() Snacks.picker.recent({ filter = { cwd = true } }) end, desc = "Find Recent Files (In cwd)" },
-        { "<leader>pR", function() Snacks.picker.recent() end, desc = "Find Recent Files" },
+        -- { "<leader>pf", function() Snacks.picker.files() end, desc = "Find Files" },
+        -- { "<leader>pF", function() Snacks.picker.smart() end, desc = "Smart Find Files" },
+        -- { "<leader>ps", function() Snacks.picker.grep() end, desc = "Grep" },
+        -- { "<leader>pr", function() Snacks.picker.recent({ filter = { cwd = true } }) end, desc = "Find Recent Files (In cwd)" },
+        -- { "<leader>pR", function() Snacks.picker.recent() end, desc = "Find Recent Files" },
+        -- { "<leader>pws", function() require("snacks").picker.grep_word() end, desc = "Search Visual selection or Word", mode = { "n", "x" } },
 
         -- lazygit
         { "<leader>lg", function() Snacks.lazygit() end, desc = "Lazygit" },

@@ -2,11 +2,11 @@ return {
     { 'nvim-mini/mini.nvim', version = '*' },
 
     -- Mini File Explorer (works with oil)
-    { 
+    {
         'nvim-mini/mini.files', version = '*',
         opts = {
             windows = {
-              preview = true, 
+              preview = true,
               width_focus = 60,
             },
             options = {
@@ -26,12 +26,12 @@ return {
         },
 
     },
-    
+
     -- Surround
     {
         "nvim-mini/mini.surround",
         version = '*',
-        event = { "BufReadPre", hBufNewFileh },
+        event = { "BufReadPre", "BufNewFile" },
         opts = {
             custom_surroundings = nil,
             -- INFO:
@@ -51,4 +51,41 @@ return {
             },
         },
     },
+
+    -- Trailspace
+    {
+        "nvim-mini/mini.trailspace",
+        version = '*',
+        event = { "BufReadPost", "BufNewFile" },
+        config = function()
+            local miniTrailspace = require("mini.trailspace")
+
+            miniTrailspace.setup({
+                only_in_normal_buffers = true,
+            })
+            vim.keymap.set("n", "<leader>tw", function() miniTrailspace.trim() end, { desc = "Erase Whitespace" })
+
+            -- Ensure highlight never reappears by removing it on CursorMoved
+            vim.api.nvim_create_autocmd("CursorMoved", {
+                pattern = "*",
+                callback = function()
+                    require("mini.trailspace").unhighlight()
+                end,
+            })
+        end,
+    },
+
+    -- Split & join
+    {
+        "nvim-mini/mini.splitjoin",
+        config = function()
+            local miniSplitJoin = require("mini.splitjoin")
+            miniSplitJoin.setup({
+                mappings = { toggle = "" }, -- Disable default mapping
+            })
+            vim.keymap.set({ "n", "x" }, "bj", function() miniSplitJoin.join() end, { desc = "Join arguments" })
+            vim.keymap.set({ "n", "x" }, "bk", function() miniSplitJoin.split() end, { desc = "Split arguments" })
+        end,
+    },
+
 }

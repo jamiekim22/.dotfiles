@@ -6,8 +6,8 @@ return {
         'nvim-mini/mini.files', version = '*',
         opts = {
             windows = {
-              preview = true,
-              width_focus = 60,
+                preview = true,
+                width_focus = 60,
             },
             options = {
                 permanent_delete = false, -- Example tweak: Move to trash instead of permanent delete
@@ -22,6 +22,13 @@ return {
                     MiniFiles.reveal_cwd()
                 end,
                 desc = "Toggle into currently opened file",
+            },
+            {
+                "<C-c>",
+                function()
+                    require("mini.files").close()
+                end,
+                desc = "Close mini file explorer",
             },
         },
 

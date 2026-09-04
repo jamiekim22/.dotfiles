@@ -33,7 +33,6 @@ return {
                 "cssls",
                 "dockerls",
                 "emmet_language_server",
-                "emmet_ls",
                 "gopls",
                 "graphql",
                 "html",
@@ -58,8 +57,6 @@ return {
                 "stylua",
                 "isort",
                 "pylint",
-                "clangd",
-                "denols",
             },
         })
     end,

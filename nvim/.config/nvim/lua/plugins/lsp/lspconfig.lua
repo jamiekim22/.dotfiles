@@ -147,6 +147,9 @@ return {
 				"javascript",
 				"javascriptreact",
 				"less",
+				"sass",
+				"scss",
+				"svelte",
 				"typescriptreact",
 			},
 			init_options = {
@@ -159,20 +162,6 @@ return {
 				showSuggestionsAsSnippets = false,
 				syntaxProfiles = {},
 				variables = {},
-			},
-		})
-
-		-- emmet_ls
-		vim.lsp.config("emmet_ls", {
-			filetypes = {
-				"html",
-				"typescriptreact",
-				"javascriptreact",
-				"css",
-				"sass",
-				"scss",
-				"less",
-				"svelte",
 			},
 		})
 
@@ -285,7 +274,7 @@ return {
 
 		-- Instead of using mason enable all configured LSP via `automatic_enable=true`
 		-- Prefer more control by enable manual server call below via vim.lsp.enable("")
-		-- mason config: lua/sethy/plugins/lsp/mason.lua:22
+		-- mason config: lua/plugins/lsp/mason.lua
 		vim.lsp.enable({
 			"astro",
 			"bashls",
@@ -293,7 +282,6 @@ return {
 			"cssls",
 			"dockerls",
 			"emmet_language_server",
-			"emmet_ls",
 			"gopls",
 			"graphql",
 			"html",

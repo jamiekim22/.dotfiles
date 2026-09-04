@@ -16,7 +16,7 @@ export FZF_TMUX_OPTS=" -p90%,70% "
 export FZF_CTRL_T_OPTS="--preview 'bat --color=always -n --line-range :500 {}'"
 export FZF_ALT_C_OPTS="--preview 'eza --tree --color=always --icons=always {} | head -200'"
 
-# Starship 
+# Starship
 bindkey -v
 if [[ "${widgets[zle-keymap-select]#user:}" == "starship_zle-keymap-select" || \
       "${widgets[zle-keymap-select]#user:}" == "starship_zle-keymap-select-wrapped" ]]; then
@@ -36,6 +36,9 @@ alias vim="nvim"
 # --long for list, --grid for grid view of files
 alias ls="eza --no-filesize --grid --color=always --icons=always --no-user"
 
+fastfetch
+alias ff="fastfetch"
+
 # fzf
 alias f="fzf"
 # Open documentation through fzf (e.g., git, zsh, etc.)
@@ -46,8 +49,9 @@ alias fe="yazi"
 
 # pokeget
 alias poke="pokeget"
+
 # zoxide
-# alias cd="z"
+alias cd="z"
 # ---------------------------------
 # Brew installations activation
 # ---------------------------------

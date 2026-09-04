@@ -31,13 +31,6 @@ return {
 				end,
 				desc = "Toggle into currently opened file",
 			},
-			{
-				"<C-c>",
-				function()
-					require("mini.files").close()
-				end,
-				desc = "Close mini file explorer",
-			},
 		},
 	},
 

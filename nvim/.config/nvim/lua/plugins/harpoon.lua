@@ -18,17 +18,6 @@ return {
             end,
             desc = "Harpoon quick menu",
         },
-        {
-            "<C-c>",
-            function()
-                -- Check if the current buffer is a Harpoon window before doing anything
-                if vim.bo.filetype == "harpoon" then
-                    local harpoon = require("harpoon")
-                    harpoon.ui:toggle_quick_menu(harpoon:list())
-                end
-            end,
-            desc = "Close Harpoon menu",
-        },
         { "<leader>1", function() require("harpoon"):list():select(1) end, desc = "Harpoon file 1" },
         { "<leader>2", function() require("harpoon"):list():select(2) end, desc = "Harpoon file 2" },
         { "<leader>3", function() require("harpoon"):list():select(3) end, desc = "Harpoon file 3" },

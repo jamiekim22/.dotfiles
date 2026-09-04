@@ -33,7 +33,18 @@ vim.keymap.set("n", "x", '"_x', opts)
 vim.keymap.set("n", "Q", "<nop>")
 
 vim.keymap.set("i", "<C-c>", "<Esc>")
-vim.keymap.set("n", "<C-c>", ":nohl<CR>", { desc = "Clear search highlights", silent = true })
+vim.keymap.set("n", "<C-c>", function()
+	if vim.bo.filetype == "harpoon" then
+		local harpoon = require("harpoon")
+		harpoon.ui:toggle_quick_menu(harpoon:list())
+		return
+	end
+	local ok, MiniFiles = pcall(require, "mini.files")
+	if ok and MiniFiles.close() then
+		return
+	end
+	vim.cmd.nohlsearch()
+end, { desc = "Clear search highlights (or close Harpoon/mini.files)" })
 
 -- replace the word cursor is on globally
 vim.keymap.set("n", "<leader>s", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]], { desc = "Replace word cursor is on globally" })

@@ -34,8 +34,20 @@ return {
         }
 
         -- Header / footer (edit these)
-        local v = vim.version()
-        local header_text = string.format("JKVIM v%d.%d.%d", v.major, v.minor, v.patch)
+        local function header_text()
+            local v = vim.version()
+            local stats = require("lazy").stats()
+            local ms = math.floor((stats.startuptime or 0) * 100 + 0.5) / 100
+            return string.format(
+                "JKVIM v%d.%d.%d  ·  %d/%d plugins in %sms",
+                v.major,
+                v.minor,
+                v.patch,
+                stats.loaded or 0,
+                stats.count or 0,
+                ms
+            )
+        end
 
         local footer_buttons = {
             { sc = "e", txt = "New file", cmd = "<cmd>ene <CR>" },
@@ -317,7 +329,7 @@ return {
                         local items = flatten({
                             {
                                 type = "text",
-                                val = header_text,
+                                val = header_text(),
                                 opts = { hl = "SpecialComment", shrink_margin = false },
                             },
                             {
@@ -378,6 +390,17 @@ return {
             pattern = "AlphaReady",
             callback = function()
                 bind_footer_buttons(vim.api.nvim_get_current_buf())
+            end,
+        })
+
+        -- Stats are 0 until lazy finishes startup; redraw the header then
+        vim.api.nvim_create_autocmd("User", {
+            pattern = "VeryLazy",
+            once = true,
+            callback = function()
+                if vim.bo.filetype == "alpha" then
+                    pcall(vim.cmd.AlphaRedraw)
+                end
             end,
         })
     end,

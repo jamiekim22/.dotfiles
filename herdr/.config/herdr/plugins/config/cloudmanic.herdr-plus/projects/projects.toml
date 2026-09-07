@@ -1,0 +1,10 @@
+name = "Projects/" # workspace name
+description = "All projects dir (New Workspace)"
+working_dir = "~/Documents/Coding"
+
+[[tabs]]
+name = "1"
+
+[[tabs]]
+name = "agent"
+command = "agent"

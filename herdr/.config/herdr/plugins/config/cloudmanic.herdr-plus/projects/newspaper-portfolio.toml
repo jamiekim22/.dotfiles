@@ -1,0 +1,25 @@
+name = "newspaper-portfolio" # workspace name
+description = "newspaper-portfolio (New Workspace)"
+working_dir = "~/Documents/Coding/newspaper-portfolio/"
+
+[[tabs]]
+name = "nvim"
+command = "nvim"
+
+[[tabs]]
+name = "agent"
+
+[[tabs.panes]]
+command = "agent"
+
+[[tabs.panes]]
+command = ""
+split = "right"
+
+[[tabs]]
+name = "localhost"
+command = "terminal-browser open localhost:4321"
+
+[[tabs]]
+name = "npm"
+command = "npm run dev"

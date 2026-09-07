@@ -1,0 +1,8 @@
+name = "🌐 Browser"
+description = "Open terminal-browser in a new tab at google.com"
+type = "command"
+command = '''
+pane="$(${HERDR_BIN_PATH:-herdr} tab create --label browser --focus --cwd "{{.WorkDir}}" \
+  | python3 -c "import json,sys; d=json.load(sys.stdin); r=d.get(\"result\", d); print(r[\"root_pane\"][\"pane_id\"])")"
+${HERDR_BIN_PATH:-herdr} pane run "$pane" "terminal-browser open https://google.com"
+'''

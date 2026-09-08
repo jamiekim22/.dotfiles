@@ -6,7 +6,7 @@ vim.opt.relativenumber = true
 vim.opt.signcolumn = "yes"
 -- Draw signs and hybrid line numbers ourselves. Gitsigns (and nvim 0.12
 -- statuscolumn) can otherwise leave the number column blank.
-vim.opt.statuscolumn = "%s%=%{v:relnum?v:relnum:v:lnum} "
+-- vim.opt.statuscolumn = "%s%=%l "
 vim.opt.scrolloff = 8
 vim.opt.splitright = true
 vim.opt.splitbelow = true

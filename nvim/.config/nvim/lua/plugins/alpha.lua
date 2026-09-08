@@ -385,11 +385,29 @@ return {
             }),
         })
 
-        -- Bind footer shortcuts when Alpha opens
+        -- Bind footer shortcuts when Alpha opens, and hide '~' fillers.
+        -- Reset window-local nu/rnu/signcolumn on leave so files get them back.
         vim.api.nvim_create_autocmd("User", {
             pattern = "AlphaReady",
             callback = function()
-                bind_footer_buttons(vim.api.nvim_get_current_buf())
+                local buf = vim.api.nvim_get_current_buf()
+                local win = vim.api.nvim_get_current_win()
+                bind_footer_buttons(buf)
+
+                vim.wo[win].fillchars = "eob: "
+
+                vim.api.nvim_create_autocmd("BufWinLeave", {
+                    buffer = buf,
+                    once = true,
+                    callback = function()
+                        if not vim.api.nvim_win_is_valid(win) then
+                            return
+                        end
+                        vim.api.nvim_win_call(win, function()
+                            vim.cmd("setlocal fillchars< number< relativenumber< signcolumn< foldcolumn<")
+                        end)
+                    end,
+                })
             end,
         })
 

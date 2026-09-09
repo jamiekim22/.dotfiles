@@ -1,5 +1,10 @@
 return {
   "christoomey/vim-tmux-navigator",
+  -- Outside tmux these mappings do nothing except shadow builtins -- notably
+  -- <c-l>, which is nvim's clear-and-redraw.
+  cond = function()
+    return vim.env.TMUX ~= nil
+  end,
   cmd = {
     "TmuxNavigateLeft",
     "TmuxNavigateDown",

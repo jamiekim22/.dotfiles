@@ -5,3 +5,8 @@ working_dir = "~/.dotfiles"
 [[tabs]]
 name = "nvim"
 command = "nvim ."
+
+[[tabs]]
+name = "hunk"
+command = "hunk diff"
+

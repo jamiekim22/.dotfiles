@@ -23,3 +23,7 @@ command = "terminal-browser open localhost:4321"
 [[tabs]]
 name = "npm"
 command = "npm run dev"
+
+[[tabs]]
+name = "hunk"
+command = "hunk diff"

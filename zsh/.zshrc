@@ -29,39 +29,34 @@ eval "$(zoxide init zsh)"
 # ---------------------------------
 # Alias
 # ---------------------------------
-alias vim="nvim"
-
 # eza (Modernized 'ls' command)
 # options: --no-filesize --no-time --no-permissions
 # --long for list, --grid for grid view of files
 alias ls="eza --no-filesize --grid --color=always --icons=always --no-user"
 
-fastfetch
-alias ff="fastfetch"
-
-# fzf
-alias f="fzf"
 # Open documentation through fzf (e.g., git, zsh, etc.)
 alias fman="compgen -c | fzf | xargs man"
 
-# yazi
+alias cd="z" # zoxide
+fastfetch() {
+  "$HOME/.config/fastfetch/pokeget-fastfetch.sh" "$@"
+}
+alias ff="fastfetch"
+alias f="fzf"
+
+alias vim="nvim"
+alias lg="lazygit"
 alias fe="yazi"
-
-# pokeget
-alias poke="pokeget"
-
-# zoxide
-alias cd="z"
 # ---------------------------------
 # Brew installations activation
 # ---------------------------------
 source /usr/local/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-
 #----------------------------------
 # Commands
 # ---------------------------------
 export EDITOR="nvim"
+fastfetch
 
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm

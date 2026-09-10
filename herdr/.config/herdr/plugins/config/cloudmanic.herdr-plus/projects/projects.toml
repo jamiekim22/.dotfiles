@@ -8,3 +8,7 @@ name = "1"
 [[tabs]]
 name = "agent"
 command = "agent"
+
+[[tabs]]
+name = "hunk"
+command = "hunk diff"

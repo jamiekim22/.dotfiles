@@ -1,0 +1,4 @@
+name = "🔄 Sync Coding Projects"
+description = "Generate project TOMLs for folders in ~/Documents/Coding"
+type = "command"
+command = "~/.config/herdr/plugins/config/cloudmanic.herdr-plus/projects/sync-coding-projects.sh"

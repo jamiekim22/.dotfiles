@@ -1,0 +1,20 @@
+name = "📁 Create Project"
+description = "Add a folder in ~/Documents/Coding and sync project TOMLs"
+type = "form"
+command = '''
+set -euo pipefail
+name="$1"
+name="${name#"${name%%[![:space:]]*}"}"
+name="${name%"${name##*[![:space:]]}"}"
+case "$name" in
+  ""|.|..|.*|*/*)
+    echo "invalid project name: ${name:-<empty>}" >&2
+    exit 1
+    ;;
+esac
+mkdir -p "$HOME/Documents/Coding/$name"
+~/.config/herdr/plugins/config/cloudmanic.herdr-plus/projects/sync-coding-projects.sh
+'''
+
+[form]
+prompt = "Project name"

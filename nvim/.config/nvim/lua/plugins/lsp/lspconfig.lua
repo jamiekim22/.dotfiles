@@ -43,8 +43,8 @@ return {
 				end, opts)
 
 				opts.desc = "See available code actions"
-				vim.keymap.set({ "n", "v" }, "<leader>vca", function()
-					vim.lsp.buf.code_action()
+				vim.keymap.set({ "n", "v" }, "<leader>ca", function()
+					require("tiny-code-action").code_action()
 				end, opts)
 
 				opts.desc = "Smart rename"

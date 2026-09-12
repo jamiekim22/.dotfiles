@@ -46,6 +46,7 @@ alias f="fzf"
 
 alias vim="nvim"
 alias lg="lazygit"
+alias gl="lazygit log"
 alias fe="yazi"
 # ---------------------------------
 # Brew installations activation

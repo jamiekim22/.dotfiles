@@ -58,7 +58,7 @@ return {
                     pcall(vim.treesitter.start, buf, lang)
 
                     -- enable indentation (skip yaml/markdown)
-                    if ft ~= "yaml" and ft ~= "markdown" then
+                    if ft ~= "yaml" and ft ~= "markdown" and ft ~= "mdx" then
                         vim.bo[buf].indentexpr = "v:lua.require'nvim-treesitter'.indentexpr()"
                         vim.bo[buf].smartindent = false
                         vim.bo[buf].cindent = false
@@ -67,11 +67,17 @@ return {
             })
         end,
     },
+    -- MDX uses the markdown parser plus TSX injections
+    {
+        "davidmh/mdx.nvim",
+        event = { "BufReadPre *.mdx", "BufNewFile *.mdx" },
+        dependencies = { "nvim-treesitter/nvim-treesitter" },
+    },
     -- NOTE: js,ts,jsx,tsx Auto Close Tags
     {
         "windwp/nvim-ts-autotag",
         enabled = true,
-        ft = { "html", "xml", "javascript", "typescript", "javascriptreact", "typescriptreact", "svelte" },
+        ft = { "html", "xml", "javascript", "typescript", "javascriptreact", "typescriptreact", "svelte", "mdx" },
         config = function()
             require("nvim-ts-autotag").setup({
                 opts = {

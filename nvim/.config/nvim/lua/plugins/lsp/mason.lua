@@ -39,6 +39,7 @@ return {
                 "jsonls",
                 "lua_ls",
                 "marksman",
+                "mdx_analyzer",
                 "prismals",
                 "pyright",
                 "rust_analyzer",

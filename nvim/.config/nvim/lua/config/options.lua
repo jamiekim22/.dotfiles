@@ -11,6 +11,8 @@ vim.opt.scrolloff = 8
 vim.opt.splitright = true
 vim.opt.splitbelow = true
 vim.opt.wrap = true
+vim.opt.linebreak = true
+vim.opt.breakindent = true
 vim.opt.cmdheight = 0
 -- vim.opt.colorcolumn = "80"
 

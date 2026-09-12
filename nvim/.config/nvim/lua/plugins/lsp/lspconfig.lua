@@ -51,8 +51,13 @@ return {
 				vim.keymap.set("n", "<leader>rn", vim.lsp.buf.rename, opts)
 
 				opts.desc = "Show buffer diagnostics"
-				vim.keymap.set("n", "<leader>D", function()
+				vim.keymap.set("n", "<leader>pd", function()
 					require("snacks").picker.diagnostics_buffer()
+				end, opts)
+
+				opts.desc = "Show diagnostics for project"
+				vim.keymap.set("n", "<leader>pD", function()
+					require("snacks").picker.diagnostics()
 				end, opts)
 
 				opts.desc = "Show line diagnostics"
@@ -252,10 +257,23 @@ return {
 				"svelte",
 				"vue",
 				"astro",
+				"mdx",
 			},
 			init_options = {
 				userLanguages = {
 					astro = "html",
+				},
+			},
+		})
+
+		-- mdx
+		vim.lsp.config("mdx_analyzer", {
+			filetypes = { "mdx" },
+			init_options = {
+				typescript = {
+					enabled = true,
+					tsdk = vim.fn.stdpath("data")
+						.. "/mason/packages/typescript-language-server/node_modules/typescript/lib",
 				},
 			},
 		})
@@ -288,6 +306,7 @@ return {
 			"jsonls",
 			"lua_ls",
 			"marksman",
+			"mdx_analyzer",
 			"prismals",
 			"pyright",
 			"rust_analyzer",

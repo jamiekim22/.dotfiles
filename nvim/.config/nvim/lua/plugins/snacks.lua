@@ -15,6 +15,21 @@ return {
                 "dist",
                 "build",
             },
+            sources = {
+                colorschemes = {
+                    -- Hide Neovim built-ins and mini.nvim palettes; keep theme.lua plugins.
+                    transform = function(item)
+                        local file = item.file or ""
+                        local runtime = vim.env.VIMRUNTIME
+                        if runtime and file:find(runtime, 1, true) == 1 then
+                            return false
+                        end
+                        if file:find("mini.nvim", 1, true) then
+                            return false
+                        end
+                    end,
+                },
+            },
         },
     },
     keys = {

@@ -22,11 +22,11 @@ return {
                 },
                 highlight_groups = {
                     ColorColumn = { bg = "#1C1C21" },
-                    -- Editor matches the terminal; floats stay slightly opaque like solarized-osaka
+                    -- Editor matches the terminal; floats stay transparent
                     Normal = { bg = "NONE" },
                     NormalNC = { bg = "NONE" },
                     SignColumn = { bg = "NONE" },
-                    NormalFloat = { bg = "#1C1C21" },
+                    NormalFloat = { bg = "NONE" },
                     Pmenu = { bg = "#191724" }, -- Completion menu background
                     PmenuSel = { bg = "#4a465d", fg = "NONE" }, -- Highlighted completion item
                     FloatBorder = { bg = "NONE" },
@@ -95,7 +95,7 @@ return {
                 contrast = "",  -- can be "hard", "soft" or empty string
                 palette_overrides = {},
                 overrides = {
-                    NormalFloat = { bg = "#282828" },
+                    NormalFloat = { bg = "NONE" },
                     PmenuSel = { bg="#504945", fg = "NONE" }, -- highlighted completion item
                     Pmenu = { bg = "#1d2021" }, -- completion menu background
                 },
@@ -135,8 +135,8 @@ return {
                 overrides = function(colors) -- modify highlights
                     local theme = colors.theme
                     return {
-                        -- NormalFloat = { bg = "none" },
-                        -- FloatBorder = { bg = "none" },
+                        NormalFloat = { bg = "none" },
+                        FloatBorder = { bg = "none" },
                         FloatTitle = { bg = "none" },
                         Pmenu = { fg = theme.ui.shade0, bg = "NONE", blend = vim.o.pumblend }, -- add `blend = vim.o.pumblend` to enable transparency
                         PmenuSel = { fg = "NONE", bg = theme.ui.bg_p2 },
@@ -178,7 +178,7 @@ return {
                     variables = {},
                     -- Background styles. Can be "dark", "transparent" or "normal"
                     sidebars = "dark",            -- style for sidebars, see below
-                    floats = "dark",              -- style for floating windows
+                    floats = "transparent",       -- style for floating windows
                 },
                 sidebars = { "qf", "help" },      -- Set a darker background on sidebar-like windows
                 day_brightness = 0.3,
@@ -248,9 +248,7 @@ return {
                 on_colors = function(colors)
                     colors.bg = transparent and colors.none or bg
                     colors.bg_dark = transparent and colors.none or bg_dark
-                    colors.bg_float = bg_dark
                     colors.bg_highlight = bg_highlight
-                    colors.bg_popup = bg_dark
                     colors.bg_search = bg_search
                     colors.bg_sidebar = transparent and colors.none or bg_dark
                     colors.bg_statusline = transparent and colors.none or bg_dark
@@ -270,6 +268,12 @@ return {
         config = function()
             require("monokai-pro").setup({
                 transparent_background = true,
+                override = function()
+                    return {
+                        NormalFloat = { bg = "NONE" },
+                        FloatBorder = { bg = "NONE" },
+                    }
+                end,
             })
         end
     },

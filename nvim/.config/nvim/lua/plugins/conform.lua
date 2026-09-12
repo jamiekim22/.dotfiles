@@ -22,6 +22,7 @@ return {
                 html = { "prettier" },
                 json = { "prettier" },
                 markdown = { "prettier" },
+                mdx = { "prettier" },
                 gleam = { "gleam" },
                 asm = { "asmfmt" },
                 css = { "prettier", stop_after_first = true },

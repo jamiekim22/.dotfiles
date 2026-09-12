@@ -5,6 +5,7 @@ return {
 		-- Keep inline preview off so markdown stays raw until the split is opened.
 		preview = {
 			enable = false,
+			filetypes = { "markdown", "quarto", "rmd", "typst", "asciidoc", "mdx" },
 			splitview_winopts = {
 				split = "right",
 			},

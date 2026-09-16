@@ -14,6 +14,9 @@ return {
 			color6 = "#a1aab8",
 			color7 = "#828697",
 			color8 = "#ae81ff",
+			color9 = "#9ece6a",
+			color10 = "#00cce3",
+			color11 = "#d9d500",
 		}
 
 		local my_lualine_theme = {
@@ -27,7 +30,7 @@ return {
 				c = { fg = colors.color6, bg = colors.color4 },
 			},
 			normal = {
-				a = { fg = colors.color0, bg = colors.color7, gui = "bold" },
+				a = { fg = colors.color0, bg = colors.color2, gui = "bold" }, -- default: color7
 				b = { fg = colors.color2, bg = colors.color4 },
 				c = { fg = colors.color2, bg = colors.color4 },
 			},
@@ -36,32 +39,32 @@ return {
 				b = { fg = colors.color2, bg = colors.color4 },
 			},
 			insert = {
-				a = { fg = colors.color0, bg = colors.color2, gui = "bold" },
+				a = { fg = colors.color0, bg = colors.color9, gui = "bold" }, -- default: color2
 				b = { fg = colors.color2, bg = colors.color4 },
 			},
 		}
 
 		local mode = {
-			'mode',
+			"mode",
 			fmt = function(str)
-				return '' .. str
+				return "" .. str
 			end,
 		}
 
 		local diff = {
-			'diff',
+			"diff",
 			colored = true,
-			symbols = { added = ' ', modified = ' ', removed = ' ' }, -- changes diff symbols
+			symbols = { added = " ", modified = " ", removed = " " }, -- changes diff symbols
 			-- cond = hide_in_width,
 		}
 
 		local filename = {
-			'filename',
+			"filename",
 			file_status = true,
 			path = 0,
 		}
 
-		local branch = {'branch', icon = {'', color={fg='#A6D4DE'}}, '|'}
+		local branch = { "branch", icon = { "", color = { fg = "#A6D4DE" } }, "|" }
 
 		lualine.setup({
 			icons_enabled = true,

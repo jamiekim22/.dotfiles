@@ -3,6 +3,8 @@ vim.g.netrw_banner = 0
 vim.opt.termguicolors = true
 vim.opt.nu = true
 vim.opt.relativenumber = true
+vim.opt.cursorline = true
+vim.opt.cursorlineopt = "number"
 vim.opt.signcolumn = "yes"
 -- Draw signs and hybrid line numbers ourselves. Gitsigns (and nvim 0.12
 -- statuscolumn) can otherwise leave the number column blank.
